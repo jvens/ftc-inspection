@@ -1,6 +1,5 @@
 <?php include("password_protect.php"); ?>
 <html>
-
 <body>
 <center>
 <form action="update.php">
