@@ -23,14 +23,14 @@
 	{
 		die('Query failed');
 	}
-	$smithRows = [];
-	$tinkerRows = []; 
+	$ortbergRows = [];
+	$ryersonRows = []; 
 
 	while($row = mysql_fetch_assoc($result)) { 
-		if ($row['division'] == "Smith")
-			array_push($smithRows, $row);
+		if ($row['division'] == "Ortberg")
+			array_push($ortbergRows, $row);
 		else
-			array_push($tinkerRows, $row);
+			array_push($ryersonRows, $row);
 	}
 
 	// Instantiate the class
@@ -56,6 +56,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
 	</script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<style>
 	table {
 		border-collapse: collapse;
@@ -90,7 +91,7 @@
 
 <center>
 
-<h1>Tinker Division</h1>
+<h1>Ortberg Division</h1>
 <table style="width:80%" border=1>
 	<tr>
 		<th>Number</th>
@@ -100,7 +101,7 @@
 		<th>Last Upadated</th>
 	</tr>
 
-	<?php foreach($tinkerRows as $row) { 
+	<?php foreach($ortbergRows as $row) { 
 
 		if ($row['robot_inspection_status'] == "PASS")
 		{
@@ -154,7 +155,7 @@
 
 </table>
 
-<h1>Smith Division</h1>
+<h1>Ryerson Division</h1>
 <table style="width:80%" border=1>
 	<tr>
 		<th>Number</th>
@@ -163,7 +164,7 @@
 		<th>Field Inspection</th>
 		<th>Last Upadated</th>
 	</tr>
-	<?php foreach($smithRows as $row) { 
+	<?php foreach($ryersonRows as $row) { 
 
 		if ($row['robot_inspection_status'] == "PASS")
 		{
