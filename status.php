@@ -33,6 +33,16 @@
 			array_push($ryersonRows, $row);
 	}
 
+	//anonymous functions to sort the arrays by `team_number`. Could have used less verbose but this is compatible with php 5.3+. So I played it safe.
+	usort($ortbergRows, function ($item1, $item2) {
+	    if ($item1['team_number'] == $item2['team_number']) return 0;
+	    return $item1['team_number'] < $item2['team_number'] ? -1 : 1;
+	});
+	usort($ryersonRows, function ($item1, $item2) {
+	    if ($item1['team_number'] == $item2['team_number']) return 0;
+	    return $item1['team_number'] < $item2['team_number'] ? -1 : 1;
+	});
+
 	// Instantiate the class
 	$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 	
@@ -96,8 +106,10 @@
 	<tr>
 		<th>Number</th>
 		<th>Name</th>
-		<th>Robot Inspection</th>
-		<th>Field Inspection</th>
+		<th>Robot Ispection Time</th>
+		<th>Robot Status</th>
+		<th>Field Inspection Time
+		<th>Field Status</th>
 		<th>Last Upadated</th>
 	</tr>
 
@@ -141,9 +153,11 @@
 		<tr>
 			<td><?php echo $row['team_number']; ?></td>
 			<td><?php echo $row['team_name']; ?></td>
+			<td><?php echo $row['robot_inspection_time']; ?> </td>
 			<td bgcolor=<?php echo $robotBgColor;?> >
 				<?php echo $robotRobotStatus; ?>
 			</td>
+			<td><?php echo $row['field_inspection_time']; ?> </td>
 			<td bgcolor= <?php echo $fieldBgColor;?> >
 				<?php echo $fieldRobotStatus ?>
 			</td>
@@ -160,8 +174,10 @@
 	<tr>
 		<th>Number</th>
 		<th>Name</th>
-		<th>Robot Inspection</th>
-		<th>Field Inspection</th>
+		<th>Robot Ispection Time</th>
+		<th>Robot Status</th>
+		<th>Field Inspection Time
+		<th>Field Status</th>
 		<th>Last Upadated</th>
 	</tr>
 	<?php foreach($ryersonRows as $row) { 
@@ -203,9 +219,11 @@
 		<tr>
 			<td><?php echo $row['team_number']; ?></td>
 			<td><?php echo $row['team_name']; ?></td>
+			<td><?php echo $row['robot_inspection_time']; ?> </td>
 			<td bgcolor=<?php echo $robotBgColor;?> >
 				<?php echo $robotRobotStatus; ?>
 			</td>
+			<td><?php echo $row['field_inspection_time']; ?> </td>
 			<td bgcolor= <?php echo $fieldBgColor;?> >
 				<?php echo $fieldRobotStatus ?>
 			</td>
