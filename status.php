@@ -56,8 +56,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
 	</script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<style>
-	table {
+	/*table {
 		border-collapse: collapse;
 		width: 80%;
 		border: 1px solid black;
@@ -79,7 +80,7 @@
 		font-size: 1.2em;
 		background-color: #a0a0a0;
 		border-bottom: 1px solid;
-	}
+	}*/
 
 	</style>
 </head>
